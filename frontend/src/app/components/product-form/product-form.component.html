@@ -1,0 +1,30 @@
+<div class="d-flex flex-column">
+    <h5>Εισαγωγή Νέου Προϊόντος</h5>
+    <form [formGroup]="productForm" class="d-flex flex-column">
+        <mat-form-field>
+            <mat-label>Όνομα Προϊόντος</mat-label>
+            <input matInput type="text" formControlName="name">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Περιγραφή Προϊόντος</mat-label>
+            <input matInput type="text" formControlName="description">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Τιμή</mat-label>
+            <input matInput type="text" formControlName="price">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Κατηγορία Προϊόντος</mat-label>
+            <input matInput type="text" formControlName="category">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Απόθεμα Προϊόντος</mat-label>
+            <input matInput type="text" formControlName="stock">
+        </mat-form-field>
+    </form>
+    <button 
+        [disabled] = "productForm.invalid"
+        (click)="onSubmit(productForm.value)">
+        Εισαγωγή
+    </button>
+</div>
