@@ -5,7 +5,27 @@ export interface Product {
     price: number,
     category: string,
     stock: number,
-    createdAt: Date
+    
 
 }
 
+export interface EProduct {
+
+    name: string,
+    description: string,
+    price: string,
+    category: string,
+    stock: string,
+    
+
+}
+
+export const ManyProduct: EProduct[] = [
+    {
+      "name": "παντοφλες",
+      "description": "μαυρες ανατομικες",
+      "price": "50",
+      "category": "υποδηματα",
+      "stock": "10"
+    }
+]

@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule} from '@angular/material/button';
+import { EProduct } from '../../shared/interfaces/product';
 
 @Component({
   selector: 'app-products-form',
@@ -18,6 +19,8 @@ import { MatButtonModule} from '@angular/material/button';
   styleUrl: './product-form.component.css'
 })
 export class ProductFormComponent {
+  @Output() product = new EventEmitter<EProduct>
+
   productForm = new FormGroup({
     name: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required),
@@ -32,6 +35,7 @@ export class ProductFormComponent {
 
     onSubmit(value:any){
       console.log(value);
+      this.product.emit(value as EProduct)
       this.productForm.reset();
     }
 

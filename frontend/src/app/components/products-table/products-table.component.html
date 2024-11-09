@@ -1,0 +1,34 @@
+<div>
+    <table class="table table-bordered table-striped text-wrap">
+        <thead>
+            <tr>
+                <th role="button" (click)="sortData('name')">
+                     Όνομα Προϊόντος<span [innerHTML]="sortSign('name')"></span>
+                </th>
+                <th role="button" (click)="sortData('description')">Περιγραφή Προϊόντος
+                    <span [innerHTML]="sortSign('description')"></span>
+                </th>
+                <th role="button" (click)="sortData('price')">Τιμή Προϊόντος
+                    <span [innerHTML]="sortSign('price')"></span>
+                </th>
+                <th role="button" (click)="sortData('category')">Κατηγορία Προϊόντος
+                    <span [innerHTML]="sortSign('category')"></span>
+                </th>
+                <th role="button" (click)="sortData('stock')">Απόθεμα Προϊόντος
+                    <span [innerHTML]="sortSign('stock')"></span>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (row of manyProduct; track row){
+                <tr class="align-middle" (dblclick)="onProductClick(row)">
+                    <td>{{row.name}}</td>
+                    <td>{{row.description}}</td>
+                    <td>{{row.price}}</td>
+                    <td>{{row.category}}</td>
+                    <td>{{row.stock}}</td>
+                </tr>
+            }
+        </tbody>
+    
+    </table>

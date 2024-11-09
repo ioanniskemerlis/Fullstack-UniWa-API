@@ -1,0 +1,8 @@
+<h4>Φόρμα Προσθήκης Προϊόντος</h4>
+<div class="d-flex gap-4">
+    <app-products-form (product)="onProduct($event)"></app-products-form>
+    <div class="d-flex flex-column gap-4">
+        <app-product-details [eproduct]="currentProduct"></app-product-details>
+        <app-products-table></app-products-table>
+    </div>
+</div>
