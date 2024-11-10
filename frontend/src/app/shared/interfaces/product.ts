@@ -1,12 +1,9 @@
 export interface Product {
-
     name: string,
     description: string,
-    price: number,
+    price: string,
     category: string,
-    stock: number,
-    
-
+    stock: string,
 }
 
 export interface EProduct {
