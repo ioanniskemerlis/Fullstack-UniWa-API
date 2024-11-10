@@ -4,6 +4,19 @@ export interface Product {
     price: string,
     category: string,
     stock: string,
+    id:string,
+}
+
+export interface FProduct {
+
+    name: string,
+    description: string,
+    price: string,
+    category: string,
+    stock: string,
+    _id:string
+    
+
 }
 
 export interface EProduct {

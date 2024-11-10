@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { text } from 'express';
 import { MenuEntry } from '../../shared/interfaces/menu-entry';
 
 @Component({
@@ -13,7 +12,7 @@ import { MenuEntry } from '../../shared/interfaces/menu-entry';
 export class ListGroupMenuComponent {
   menu: MenuEntry[] = [
     { text: "Εισαγωγή Προϊόντος", routerLink: "app-product-insert"},
-    { text: "Λίστα Προϊόντων", routerLink: "app-products-list"}
+    { text: "Εύρεση Προϊόντος", routerLink: "app-products-update"},
   ]
 
 }

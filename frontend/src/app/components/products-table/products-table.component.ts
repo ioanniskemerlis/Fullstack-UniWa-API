@@ -1,7 +1,8 @@
 
-import { Component, EventEmitter, Output } from '@angular/core';
-import { EProduct, ManyProduct } from '../../shared/interfaces/product';
+import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
+import { EProduct, Product } from '../../shared/interfaces/product';
 import { sortBy } from 'lodash-es';
+import { ProductService } from '../../shared/services/product.service';
 
 @Component({
   selector: 'app-products-table',
@@ -10,9 +11,29 @@ import { sortBy } from 'lodash-es';
   templateUrl: './products-table.component.html',
   styleUrl: './products-table.component.css'
 })
-export class ProductsTableComponent {
+export class ProductsTableComponent implements OnInit {
+    productService = inject(ProductService)
+
+
+        products: Product[] = [];
+      
+      
+        ngOnInit(): void {
+          // Fetch all products on component initialization
+        
+          this.productService.getAllProducts().subscribe(
+            (data: Product[]) => {
+              this.products = data;
+    
+            },
+            (error) => {
+              console.error('Error fetching products:', error);
+            }
+          );
+        }
+        
     @Output() productClicked = new EventEmitter<EProduct>();
-    manyProduct = ManyProduct;
+    
 
     sortOrder: EProduct = {
         name: 'none',
@@ -25,10 +46,10 @@ export class ProductsTableComponent {
     sortData(sortKey: keyof EProduct ): void {
         if (this.sortOrder[sortKey]==='asc') {
             this.sortOrder[sortKey]='desc'
-            this.manyProduct = sortBy(this.manyProduct,sortKey).reverse()
+            this.products = sortBy(this.products,sortKey).reverse()
         } else {        // if (this.sortOrder[sortKey]==='asc')
             this.sortOrder[sortKey]='asc';
-            this.manyProduct = sortBy(this.manyProduct,sortKey)
+            this.products = sortBy(this.products,sortKey)
         }
     }
     sortSign(sortKey: keyof EProduct): string {

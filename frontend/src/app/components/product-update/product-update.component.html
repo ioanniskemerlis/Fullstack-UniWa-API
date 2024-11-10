@@ -1,0 +1,47 @@
+<div class="d-flex flex-column">
+    
+
+    <form [formGroup]="searchForm" (ngSubmit)="search()">
+        <div class="d-flex gap-4">
+            <input type="text" formControlName="search" placeholder="enter a valid id">
+            <button type="submit">Search</button>
+        </div>
+    </form>
+
+    <form [formGroup]="form" class="d-flex flex-column mt-4">
+        <mat-form-field>
+            <mat-label>Όνομα Προϊόντος</mat-label>
+            <input matInput type="text" formControlName="name">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Περιγραφή Προϊόντος</mat-label>
+            <input matInput type="text" formControlName="description">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Τιμή</mat-label>
+            <input matInput type="text" formControlName="price">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Κατηγορία Προϊόντος</mat-label>
+            <input matInput type="text" formControlName="category">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Απόθεμα Προϊόντος</mat-label>
+            <input matInput type="text" formControlName="stock">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Id Προϊόντος</mat-label>
+            <input matInput type="text" formControlName="id">
+        </mat-form-field>
+    </form>
+    <button 
+        [disabled] = "form.invalid"
+        (click)="onSubmit(form.value)">
+        Ενημέρωση
+    </button>
+    <button 
+        [disabled] = "form.invalid"
+        (click)="onDelete(form.value)">
+        Διαγραφή
+    </button>
+</div>

@@ -20,7 +20,7 @@
             </tr>
         </thead>
         <tbody>
-            @for (row of manyProduct; track row){
+            @for (row of products; track row){
                 <tr class="align-middle" (dblclick)="onProductClick(row)">
                     <td>{{row.name}}</td>
                     <td>{{row.description}}</td>
