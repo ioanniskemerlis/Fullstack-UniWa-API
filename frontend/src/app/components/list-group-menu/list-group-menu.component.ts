@@ -11,8 +11,8 @@ import { MenuEntry } from '../../shared/interfaces/menu-entry';
 })
 export class ListGroupMenuComponent {
   menu: MenuEntry[] = [
-    { text: "Εισαγωγή Προϊόντος", routerLink: "app-product-insert"},
-    { text: "Εύρεση Προϊόντος", routerLink: "app-products-update"},
+    { text: "Εισαγωγή Παραγγελίας", routerLink: "app-product-insert"},
+    { text: "Εύρεση Παραγγελίας", routerLink: "app-products-update"},
   ]
 
 }

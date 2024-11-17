@@ -1,4 +1,4 @@
-import { Component,inject } from '@angular/core';
+import { Component,inject, input } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
@@ -10,7 +10,7 @@ import { ProductService } from '../../shared/services/product.service';
 
 
 @Component({
-  selector: 'app-product-update',
+  selector: 'app-courier-update',
   standalone: true,
   imports: [
     ReactiveFormsModule,
@@ -19,10 +19,10 @@ import { ProductService } from '../../shared/services/product.service';
     MatSelectModule,
     MatFormFieldModule,
     ],
-  templateUrl: './product-update.component.html',
-  styleUrl: './product-update.component.css'
+  templateUrl: './courier-update.component.html',
+  styleUrl: './courier-update.component.css'
 })
-export class ProductUpdateComponent {
+export class CourierUpdateComponent {
 
   productService = inject(ProductService)
 
@@ -31,14 +31,13 @@ export class ProductUpdateComponent {
   })
 
   form = new FormGroup({
-    name: new FormControl('', Validators.required),
+    name: new FormControl({ value: '', disabled: true }, Validators.required),
     status: new FormControl('', Validators.required),
-    courier: new FormControl('', Validators.required),
-    category: new FormControl('', Validators.required),
-    price: new FormControl('', Validators.required),
-    payment: new FormControl('', Validators.required),
-    address: new FormControl('', Validators.required),
-    id: new FormControl
+    courier: new FormControl({ value: '', disabled: true }, Validators.required),
+    price: new FormControl({ value: '', disabled: true }, Validators.required),
+    payment: new FormControl({ value: '', disabled: true }, Validators.required),
+    address: new FormControl({ value: '', disabled: true }, Validators.required),
+    id: new FormControl({ value: '', disabled: true }, Validators.required)   
 })
 onSubmit(value: any){
   console.log(value);
@@ -76,14 +75,14 @@ onSubmit(value: any){
       this.productService.searchProductById(searchValue).subscribe((response: FProduct)=>{
       console.log(response)
       this.form.patchValue({
-        name: response.name,
-        status: response.status,
-        courier: response.courier,
-        category: response.category,
-        price: response.price,
-        payment: response.payment,
-        address: response.address,
-        id: response._id
+      name: response.name,
+      status: response.status,
+      courier: response.courier,
+      price: response.price,
+      payment: response.payment,
+      address: response.address,
+      id: response._id
+
       })
     })
   }

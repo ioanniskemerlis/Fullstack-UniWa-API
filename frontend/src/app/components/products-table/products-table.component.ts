@@ -37,10 +37,12 @@ export class ProductsTableComponent implements OnInit {
 
     sortOrder: EProduct = {
         name: 'none',
-        description: 'none',
-        price: 'none',
-        category:'none',
-        stock:'none'
+        status: 'none',
+        courier: 'none',
+        category: 'none',
+        price:'none',
+        payment:'none',
+        address: 'none'
     }
 
     sortData(sortKey: keyof EProduct ): void {

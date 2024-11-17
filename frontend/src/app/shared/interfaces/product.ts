@@ -1,19 +1,23 @@
 export interface Product {
     name: string,
-    description: string,
-    price: string,
+    status: string,
+    courier: string,
     category: string,
-    stock: string,
+    price: string,
+    payment: string,
+    address: string,
     id:string,
 }
 
 export interface FProduct {
 
     name: string,
-    description: string,
-    price: string,
+    status: string,
+    courier: string,
     category: string,
-    stock: string,
+    price: string,
+    payment: string,
+    address: string,
     _id:string
     
 
@@ -22,20 +26,16 @@ export interface FProduct {
 export interface EProduct {
 
     name: string,
-    description: string,
-    price: string,
+    status: string,
+    courier: string,
     category: string,
-    stock: string,
+    price: string,
+    payment: string,
+    address: string,
     
 
 }
 
 export const ManyProduct: EProduct[] = [
-    {
-      "name": "παντοφλες",
-      "description": "μαυρες ανατομικες",
-      "price": "50",
-      "category": "υποδηματα",
-      "stock": "10"
-    }
+   
 ]

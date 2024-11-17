@@ -6,7 +6,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule} from '@angular/material/button';
 import { EProduct, Product } from '../../shared/interfaces/product';
 import { ProductService } from '../../shared/services/product.service';
-import { response } from 'express';
 
 @Component({
   selector: 'app-products-form',
@@ -29,14 +28,14 @@ export class ProductFormComponent {
 
   productForm = new FormGroup({
     "name": new FormControl('', Validators.required),
-    "description": new FormControl('', Validators.required),
+    "status": new FormControl('', Validators.required),
+    "courier": new FormControl('', Validators.required),
+    "category": new FormControl('', Validators.required),
     "price": new FormControl('', [ Validators.required,
       Validators.pattern('^[0-9]*$')
     ]),
-    "category": new FormControl('', Validators.required),
-    "stock": new FormControl('', [ Validators.required,
-      Validators.pattern('^[0-9]*$')
-    ])
+    "payment": new FormControl('', Validators.required),
+    "address": new FormControl('', Validators.required),
     })
 
     onSubmit(value:any){

@@ -3,24 +3,32 @@
 } @else {
   <table class="table table-bordered w-50">
       <tr>
-          <td class="fw-semibold">Όνομα Προϊόντος</td>
+          <td class="fw-semibold">Όνομα Πελάτη</td>
           <td class="ps-2">{{ product?.name || eproduct?.name }}</td>
       </tr>
       <tr>
-          <td class="fw-semibold">Περιγραφή Προϊόντος</td>
-          <td class="ps-2">{{ product?.description || eproduct?.description}}</td>
+          <td class="fw-semibold">Εξέλιξη Παραγγελίας</td>
+          <td class="ps-2">{{ product?.status || eproduct?.status}}</td>
       </tr>
       <tr>
-          <td class="fw-semibold">Τιμή</td>
+        <td class="fw-semibold">Όνομα Διανομέα</td>
+        <td class="ps-2">{{product?.courier || eproduct?.courier}}</td>
+    </tr>
+      <tr>
+        <td class="fw-semibold">Κατηγορία Προϊόντος</td>
+        <td class="ps-2">{{product?.category || eproduct?.category}}</td>
+    </tr>
+      <tr>
+          <td class="fw-semibold">Τιμή Παραγγελίας</td>
           <td class="ps-2">{{product?.price || eproduct?.price}}</td>
       </tr>
       <tr>
-          <td class="fw-semibold">Κατηγορία Προϊόντος</td>
-          <td class="ps-2">{{product?.category || eproduct?.category}}</td>
+          <td class="fw-semibold">Μέθοδος Πληρωμής</td>
+          <td class="ps-2">{{product?.payment || eproduct?.payment}}</td>
       </tr>
       <tr>
-          <td class="fw-semibold">Απόθεμα Προϊόντος</td>
-          <td class="ps-2">{{product?.stock || eproduct?.stock}}</td>
-      </tr>
+        <td class="fw-semibold">Διεύθυνση Πελάτη</td>
+        <td class="ps-2">{{product?.address || eproduct?.address}}</td>
+    </tr>
   </table>
 }

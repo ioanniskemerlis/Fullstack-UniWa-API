@@ -6,10 +6,10 @@ const ProductSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  description: {
+  status: {
     type: String,
   },
-  price: {
+  courier: {
     type: String,
     required: true
   },
@@ -17,7 +17,15 @@ const ProductSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  stock: {
+  price: {
+    type: String,
+    default: 0
+  },
+  payment: {
+    type: String,
+    default: 0
+  },
+  address: {
     type: String,
     default: 0
   },

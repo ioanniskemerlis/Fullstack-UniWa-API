@@ -3,19 +3,26 @@
         <thead>
             <tr>
                 <th role="button" (click)="sortData('name')">
-                     Όνομα Προϊόντος<span [innerHTML]="sortSign('name')"></span>
+                     Όνομα Πελάτη<span [innerHTML]="sortSign('name')"></span>
                 </th>
-                <th role="button" (click)="sortData('description')">Περιγραφή Προϊόντος
-                    <span [innerHTML]="sortSign('description')"></span>
+                <th role="button" (click)="sortData('status')">Εξέλιξη Παραγγελίας
+                    <span [innerHTML]="sortSign('status')"></span>
+                </th>
+                <th role="button" (click)="sortData('courier')">
+                    Όνομα Διανομέα<span [innerHTML]="sortSign('courier')"></span>
+               </th>
+               <th role="button" (click)="sortData('category')">Κατηγορία Προϊόντος
+                <span [innerHTML]="sortSign('category')"></span>
                 </th>
                 <th role="button" (click)="sortData('price')">Τιμή Προϊόντος
                     <span [innerHTML]="sortSign('price')"></span>
                 </th>
-                <th role="button" (click)="sortData('category')">Κατηγορία Προϊόντος
-                    <span [innerHTML]="sortSign('category')"></span>
+                
+                <th role="button" (click)="sortData('payment')">Μέθοδος Πληρωμής
+                    <span [innerHTML]="sortSign('payment')"></span>
                 </th>
-                <th role="button" (click)="sortData('stock')">Απόθεμα Προϊόντος
-                    <span [innerHTML]="sortSign('stock')"></span>
+                <th role="button" (click)="sortData('address')">Διεύθυνση Πελάτη
+                    <span [innerHTML]="sortSign('address')"></span>
                 </th>
             </tr>
         </thead>
@@ -23,10 +30,12 @@
             @for (row of products; track row){
                 <tr class="align-middle" (dblclick)="onProductClick(row)">
                     <td>{{row.name}}</td>
-                    <td>{{row.description}}</td>
-                    <td>{{row.price}}</td>
+                    <td>{{row.status}}</td>
+                    <td>{{row.courier}}</td>
                     <td>{{row.category}}</td>
-                    <td>{{row.stock}}</td>
+                    <td>{{row.price}}</td>
+                    <td>{{row.payment}}</td>
+                    <td>{{row.address}}</td>
                 </tr>
             }
         </tbody>

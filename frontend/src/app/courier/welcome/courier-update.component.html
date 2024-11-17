@@ -1,6 +1,14 @@
 <div class="d-flex flex-column">
-    <h5>Εισαγωγή Νέας Παραγγελίας</h5>
-    <form [formGroup]="productForm" class="d-flex flex-column">
+    
+
+    <form [formGroup]="searchForm" (ngSubmit)="search()">
+        <div class="d-flex gap-4">
+            <input type="text" formControlName="search" placeholder="enter a valid id">
+            <button type="submit">Search</button>
+        </div>
+    </form>
+
+    <form [formGroup]="form" class="d-flex flex-column mt-4">
         <mat-form-field>
             <mat-label>Όνομα Πελάτη</mat-label>
             <input matInput type="text" formControlName="name">
@@ -14,10 +22,6 @@
             <input matInput type="text" formControlName="courier">
         </mat-form-field>
         <mat-form-field>
-            <mat-label>Κατηγορία Προϊόντος</mat-label>
-            <input matInput type="text" formControlName="category">
-        </mat-form-field>
-        <mat-form-field>
             <mat-label>Τιμή Παραγγελίας</mat-label>
             <input matInput type="text" formControlName="price">
         </mat-form-field>
@@ -29,10 +33,14 @@
             <mat-label>Διεύθυνση Πελάτη</mat-label>
             <input matInput type="text" formControlName="address">
         </mat-form-field>
+        <mat-form-field>
+            <mat-label>Id Παραγγελίας</mat-label>
+            <input matInput type="text" formControlName="id">
+        </mat-form-field>
     </form>
     <button 
-        [disabled] = "productForm.invalid"
-        (click)="onSubmit(productForm.value)">
-        Εισαγωγή
+        [disabled] = "form.invalid"
+        (click)="onSubmit(form.value)">
+        Ενημέρωση Παραγγελίας
     </button>
 </div>
